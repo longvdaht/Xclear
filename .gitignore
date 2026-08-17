@@ -32,6 +32,13 @@ wp-config.php
 # Log files
 *.log
 
+# UpdraftPlus backups
+/wp-content/updraft/
+
+# WordPress core update leftover
+/wp-content/languages-old/
+/wp-content/*-old/
+
 # htaccess
 /.htaccess
 
