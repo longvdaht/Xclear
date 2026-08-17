@@ -1,0 +1,181 @@
+/*!
+Theme Name: Practice theme
+Description: A custom WordPress theme.
+Author: Linh
+Version: 1.0
+*/
+:root {
+  --color-neutral-1: #263238;
+  --color-neutral-2: #546E7A;
+  --color-neutral-3: #78909C;
+  --color-neutral-4: #B0BEC5;
+  --color-neutral-5: #CFD8DC;
+  --color-neutral-white: #FFFFFF;
+  --color-green-50: #E7F2E9;
+  --color-green-100: #C5DFC9;
+  --color-green-200: #A1CBA7;
+  --color-green-300: #7EB886;
+  --color-green-400: #65AA6E;
+  --color-green-500: #4C9C57;
+  --color-green-600: #448E4E;
+  --color-green-700: #3B7C43;
+  --color-green-800: #336C39;
+  --color-green-900: #254D29;
+  --color-green-950: #1A341D;
+  --color-blue-50: #E1F6F8;
+  --color-blue-100: #B5E8ED;
+  --color-blue-200: #88DAE2;
+  --color-blue-300: #61CAD6;
+  --color-blue-400: #4DBFCD;
+  --color-blue-500: #45B4C5;
+  --color-blue-600: #40A4B3;
+  --color-blue-700: #3B8F9A;
+  --color-blue-800: #367B82;
+  --color-blue-900: #2D5859;
+  --color-blue-950: #1C4A4B;
+  --font-primary: Plus Jakarta Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+  --font-title: Plus Jakarta Sans, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --max-width: 1440px;
+  --header-width: 1440px;
+  --content-width: 1312px;
+}
+
+html, body {
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+}
+
+.h1 {
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: 46px;
+  line-height: 54px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+}
+
+.h3 {
+  font-size: 38px;
+  line-height: 46px;
+  letter-spacing: -0.01em;
+}
+
+.h4 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+.h5 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.h6 {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+}
+
+.fw-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.fw-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.fw-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.text-small,
+.text-regular,
+.text-normal {
+  font-family: var(--font-primary);
+  line-height: 140%;
+}
+
+.text-small {
+  font-size: 14px;
+}
+
+.text-regular,
+.text-normal {
+  font-size: 16px;
+}
+
+.underline {
+  font-weight: var(--font-weight-regular);
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 99px;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+.btn .icon {
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+}
+.btn.btn-large {
+  padding: 16px 20px;
+  height: 53px;
+}
+.btn.btn-small {
+  padding: 12px 16px;
+  height: 45px;
+}
+.btn.btn-default {
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+}
+.btn.btn-outline {
+  background: transparent;
+  color: var(--btn-border);
+  border: 1px solid var(--btn-border);
+}
+.btn.btn-text {
+  background: none;
+  border: none;
+  padding: 0;
+  gap: 4px;
+  color: var(--btn-border);
+}
+.btn.btn-primary {
+  --btn-bg: var(--color-blue-500);
+  --btn-color: var(--color-neutral-white);
+  --btn-border: var(--color-blue-100);
+}
+.btn.btn-white {
+  --btn-bg: var(--color-neutral-white);
+  --btn-color: var(--color-blue-500);
+  --btn-border: var(--color-neutral-white);
+}
+.btn.btn-secondary {
+  --btn-bg: var(--color-green-900);
+  --btn-color: var(--color-neutral-white);
+  --btn-border: var(--color-green-300);
+}

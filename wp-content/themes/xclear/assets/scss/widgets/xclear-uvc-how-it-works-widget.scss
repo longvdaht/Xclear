@@ -1,0 +1,246 @@
+@use "../variables" as *;
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.xclear-uvc-how-it-works {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 40px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.xclear-uvc-how-it-works__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.xclear-uvc-how-it-works__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-blue-700;
+    background: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.xclear-uvc-how-it-works__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-blue-700;
+    flex-shrink: 0;
+}
+
+.xclear-uvc-how-it-works__heading {
+    font-size: 28px;
+    line-height: 1.2;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-uvc-how-it-works__heading .xclear-hl {
+    background: none;
+    color: $color-blue-600;
+}
+
+.xclear-uvc-how-it-works__desc {
+    color: $color-neutral-2;
+    margin: 0;
+    margin-top: 12px;
+}
+
+// ── Steps ─────────────────────────────────────────────────────────────────────
+.xclear-uvc-how-it-works__steps-wrap {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &.is-dragging {
+        cursor: grabbing;
+    }
+}
+
+.xclear-uvc-how-it-works__steps {
+    display: flex;
+    align-items: flex-start;
+    width: max-content;
+    min-width: 100%;
+}
+
+.xclear-uvc-how-it-works__step {
+    flex: 0 0 85vw;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-right: 32px;
+    max-width: 280px;
+
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.xclear-uvc-how-it-works__step-header {
+    display: flex;
+    align-items: center;
+    margin-right: -32px;
+
+    .xclear-uvc-how-it-works__step:last-child & {
+        margin-right: 0;
+    }
+}
+
+.xclear-uvc-how-it-works__step-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background-color: $color-blue-50;
+    color: $color-neutral-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.xclear-uvc-how-it-works__step-connector {
+    flex: 1;
+    height: 1px;
+    background-color: $color-neutral-5;
+}
+
+.xclear-uvc-how-it-works__step-title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-uvc-how-it-works__step-desc {
+    max-width: 304px;
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+// ── Performance Tips ──────────────────────────────────────────────────────────
+.xclear-uvc-how-it-works__tips-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.xclear-uvc-how-it-works__tips-title {
+    font-weight: 500;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-uvc-how-it-works__tips-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.xclear-uvc-how-it-works__tip-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background-color: $bg-5;
+    border-radius: 16px;
+}
+
+.xclear-uvc-how-it-works__tip-icon {
+    font-size: 40px;
+    color: $color-blue-600;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        fill: $color-blue-600;
+    }
+}
+
+.xclear-uvc-how-it-works__tip-text {
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (min-width: $media-md) {
+    .xclear-uvc-how-it-works {
+        padding: 64px 0;
+        gap: 36px;
+    }
+
+    .xclear-uvc-how-it-works__steps-wrap {
+        scroll-snap-type: none;
+    }
+
+    .xclear-uvc-how-it-works__step {
+        flex: 0 0 360px;
+        scroll-snap-align: unset;
+    }
+
+    .xclear-uvc-how-it-works__heading {
+        font-size: 34px;
+    }
+
+    .xclear-uvc-how-it-works__tips-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .xclear-uvc-how-it-works__tip-card {
+        padding: 32px;
+    }
+
+    .xclear-uvc-how-it-works__step {
+        max-width: none;
+    }
+}
+
+@media (min-width: $media-lg) {
+    .xclear-uvc-how-it-works {
+        gap: 64px;
+    }
+
+    .xclear-uvc-how-it-works__header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 64px;
+        row-gap: 16px;
+    }
+
+    .xclear-uvc-how-it-works__heading {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: 38px;
+    }
+
+    .xclear-uvc-how-it-works__desc {
+        grid-column: 2;
+        grid-row: 2;
+        margin-top: 0;
+    }
+}

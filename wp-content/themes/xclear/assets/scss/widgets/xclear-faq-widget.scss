@@ -1,0 +1,265 @@
+@use "../variables" as *;
+
+// ── Main Layout ─────────────────────────────────────────────────────────────
+.xclear-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0;
+    font-family: $font-body;
+}
+
+// ── Sidebar ─────────────────────────────────────────────────────────────────
+.xclear-faq__sidebar {
+    flex-shrink: 0;
+}
+
+// ── Badge ───────────────────────────────────────────────────────────────────
+.xclear-faq__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-blue-700);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    background-color: var(--color-blue-50);
+    border: 1px solid var(--color-blue-50);
+    border-radius: 99px;
+    padding: 4px 12px;
+    margin: 0 0 16px;
+    width: fit-content;
+}
+
+.xclear-faq__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-blue-700);
+    flex-shrink: 0;
+}
+
+// ── Heading ─────────────────────────────────────────────────────────────────
+.xclear-faq__heading {
+    font-family: $font-title;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 38px;
+    color: $color-neutral-1;
+    letter-spacing: -.01em;
+    margin: 0 0 28px;
+}
+
+// ── Description ─────────────────────────────────────────────────────────────
+.xclear-faq__description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: -.01em;
+    color: var(--color-neutral-2);
+    margin: 0 0 28px;
+}
+
+// ── Nav ─────────────────────────────────────────────────────────────────────
+.xclear-faq__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.xclear-faq__nav-link {
+    font-family: var(--font-title);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -.01em;
+    color: $color-neutral-1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $color-blue-700;
+    }
+
+    &.is-active {
+        color: $color-blue-700;
+    }
+}
+
+.xclear-faq__nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+
+    svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+// ── Content ─────────────────────────────────────────────────────────────────
+.xclear-faq__content {
+    flex: 1;
+    min-width: 0;
+}
+
+// ── Category ────────────────────────────────────────────────────────────────
+.xclear-faq__category {
+    & + & {
+        margin-top: 40px;
+    }
+}
+
+.xclear-faq__category-title {
+    font-family: $font-title;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -.01em;
+    font-weight: 500;
+    color: $color-blue-700;
+    margin: 0;
+    padding: 16px;
+
+    + .xclear-faq__item {
+        border-top: 1px solid $color-neutral-5;
+    }
+}
+
+// ── FAQ Item ────────────────────────────────────────────────────────────────
+.xclear-faq__item {
+    background: #fff;
+    border-bottom: 1px solid $color-neutral-5;
+    padding: 16px;
+    cursor: pointer;
+}
+
+// ── Question Button ─────────────────────────────────────────────────────────
+.xclear-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.xclear-faq__question-text {
+    display: block;
+    position: relative;
+    color: var(--color-neutral-1);
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -.01em;
+    padding: 0 24px 0 0;
+    margin: 0;
+    width: 100%;
+
+    &:after {
+        content: '';
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url('../../images/CaretDown.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all .2s ease;
+    }
+}
+
+// Default: show chevron, hide check
+.xclear-faq__icon--check {
+    display: none;
+}
+
+.xclear-faq__icon--chevron {
+    display: flex;
+}
+
+// Active state: show check, hide chevron
+.xclear-faq__item.is-active {
+    background-color: #F0F8FA;
+
+    .xclear-faq__question-text::after {
+        transform: rotate(90deg);
+    }
+}
+
+// ── Answer ──────────────────────────────────────────────────────────────────
+.xclear-faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    cursor: default;
+}
+
+.xclear-faq__answer-inner {
+    color: var(--color-neutral-2);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    margin: 16px 0 0;
+
+    p {
+        margin: 0;
+    }
+}
+
+// max-height is controlled by JS for accurate accordion animation
+
+@media (min-width: $media-lg) {
+    .xclear-faq {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .xclear-faq__sidebar {
+        width: 34%;
+        position: sticky;
+        top: 100px;
+        align-self: flex-start;
+    }
+}
+
+@media (min-width: $media-md) {
+    .xclear-faq__category-title {
+        font-size: 24px;
+        line-height: 32px;
+        padding: 24px;
+    }
+
+    .xclear-faq__heading {
+        font-size: 38px;
+        line-height: 46px;
+        letter-spacing: -.02em;
+    }
+
+    .xclear-faq__item {
+        padding: 24px;
+    }
+
+    .xclear-faq__description {
+        font-size: 16px;
+        line-height: 150%;
+    }
+
+    .xclear-faq__question-text {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}

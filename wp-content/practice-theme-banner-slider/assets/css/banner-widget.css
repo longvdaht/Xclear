@@ -1,0 +1,100 @@
+.banner-widget.swiper {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.banner-widget.swiper .banner-slide {
+  background-size: cover;
+  background-position: center;
+  background-image: var(--bg-desktop);
+}
+.banner-widget.swiper .banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 56px;
+}
+.banner-widget.swiper .left-banner {
+  flex: 1;
+  max-width: 480px;
+}
+.banner-widget.swiper .banner-title {
+  color: var(--color-neutral-white);
+  margin: 0 0 20px;
+}
+.banner-widget.swiper .banner-description {
+  color: var(--color-neutral-white);
+  line-height: 1.6;
+}
+.banner-widget.swiper .banner-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+.banner-widget.swiper .banner-images {
+  position: relative;
+  flex: 1;
+  height: 380px;
+}
+.banner-widget.swiper .banner-img {
+  position: absolute;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.banner-widget.swiper .banner-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.banner-widget.swiper .banner-img--back {
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 67%;
+  z-index: 1;
+}
+.banner-widget.swiper .banner-img--front {
+  bottom: 0;
+  left: 0;
+  width: 65%;
+  height: 74%;
+  z-index: 2;
+}
+.banner-widget.swiper .swiper-pagination {
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+.banner-widget.swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.banner-widget.swiper .swiper-pagination-bullet-active {
+  background: #ffffff;
+  transform: scale(1.3);
+}
+@media (max-width: 767px) {
+  .banner-widget.swiper .banner-slide {
+    background-image: var(--bg-mobile);
+  }
+  .banner-widget.swiper .banner-inner {
+    flex-direction: column;
+    padding: 40px 24px 60px;
+    align-items: stretch;
+  }
+  .banner-widget.swiper .left-banner {
+    max-width: 100%;
+  }
+  .banner-widget.swiper .banner-images {
+    max-width: 100%;
+    flex: none;
+  }
+}

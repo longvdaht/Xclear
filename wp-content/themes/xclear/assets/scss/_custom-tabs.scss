@@ -1,0 +1,125 @@
+@use "variables" as *;
+
+.xclear-custom-tabs {
+    padding: 0 0 40px;
+
+    .elementor-widget-n-tabs {
+        .e-n-tabs {
+            gap: 0;
+
+            .e-con-full,
+            .e-con>.e-con-inner {
+                padding: 28px 0 40px;
+            }
+        }
+
+        .e-n-tabs-heading {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid $color-neutral-5;
+            margin: 0;
+            flex-wrap: nowrap;
+        }
+
+        .e-n-tab-title {
+            flex: 1 1 0;
+            max-width: 33.333%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10px 16px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            position: relative;
+            box-shadow: none;
+
+            .e-n-tab-title-text {
+                font-family: $font-title;
+                font-size: 16px;
+                color: $color-neutral-1;
+                font-weight: 700;
+                line-height: 150%;
+                letter-spacing: -.01em;
+            }
+
+            &:hover {
+                color: $color-neutral-1;
+                background: transparent;
+            }
+
+            &[aria-selected=false] {
+                background: transparent !important;
+                margin: 0 !important;
+            }
+
+            &[aria-selected="true"] {
+                color: $color-neutral-1;
+                background: transparent !important;
+                margin: 0 !important;
+            }
+
+            // Active bottom border indicator
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -1px; // overlap the container's border-bottom
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: transparent;
+                transition: background-color 0.3s ease;
+            }
+
+            &[aria-selected="true"]::after {
+                background-color: $color-neutral-1;
+            }
+
+            .e-n-tab-icon {
+                display: none;
+            }
+        }
+    }
+
+    .e-n-tabs-content {
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+}
+
+@media (min-width: $media-md) {
+    .xclear-custom-tabs {
+        padding: 0 0 80px;
+
+        .elementor-widget-n-tabs  {
+            .e-n-tabs {
+                .e-con-full,
+                .e-con>.e-con-inner {
+                    padding-top: 40px;
+                    padding-bottom: 80px;
+                }
+            }
+
+            // .e-n-tabs-heading {
+            //     flex-direction: column;
+            //     border-bottom: none;
+            // }
+
+            // .e-n-tab-title {
+            //     max-width: 100%;
+            //     border-bottom: 1px solid $color-neutral-5;
+
+            //     &::after {
+            //         display: none; // remove absolute line on mobile
+            //     }
+
+            //     &[aria-selected="true"] {
+            //         border-bottom-color: $color-neutral-1;
+            //     }
+            // }
+        }
+    }
+}

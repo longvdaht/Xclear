@@ -1,0 +1,76 @@
+@use "../variables" as *;
+
+// ── Layout ──────────────────────────────────────────────────────────────────
+.xclear-about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 0 40px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex: none;
+        width: 100%;
+        padding: 32px;
+        background-color: var(--color-blue-50);
+        border-radius: 16px;
+        text-decoration: none;
+
+        &--link {
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--color-blue-200);
+            }
+        }
+    }
+
+    // ── Icon ────────────────────────────────────────────────────────────────
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        color: var(--color-blue-700);
+
+        svg {
+            fill: var(--color-blue-700);
+        }
+    }
+
+    // ── Text ─────────────────────────────────────────────────────────────────
+    &__text {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--color-neutral-1);
+    }
+}
+
+@media (min-width: $media-md) {
+    .xclear-about-highlights {
+        padding: 32px 0 24px;
+
+        &__item {
+            width: calc((100% - 64px) / 3);
+        }
+    }
+}
+
+@media (max-width: $media-md) {
+    .xclear-about-highlights {
+        gap: 16px;
+        padding: 0 0 16px;
+
+        &__item {
+            padding:16px 32px;
+        }
+    }
+}
+

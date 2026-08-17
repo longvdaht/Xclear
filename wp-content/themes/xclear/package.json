@@ -1,0 +1,15 @@
+{
+  "name": "xclear",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.86.0"
+  },
+  "scripts": {
+    "build:css": "node_modules/.bin/sass --style=compressed assets/scss/style.scss assets/css/style.min.css",
+    "build:widgets": "node_modules/.bin/sass --style=compressed assets/scss/widgets/:assets/css/widgets/",
+    "build": "npm run build:css && npm run build:widgets",
+    "watch:css": "node_modules/.bin/sass --watch assets/scss/style.scss assets/css/style.min.css --style=compressed",
+    "watch:widgets": "node_modules/.bin/sass --watch --style=compressed assets/scss/widgets/:assets/css/widgets/",
+    "watch": "npm run watch:css & npm run watch:widgets"
+  }
+}

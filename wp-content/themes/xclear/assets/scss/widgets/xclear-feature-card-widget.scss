@@ -1,0 +1,141 @@
+@use "../variables" as *;
+
+.xclear-feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 31.2%);
+    gap: 3.2%;
+}
+
+.xclear-feature-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    padding: 34px 32px 30px;
+    color: $white;
+    background-color: #0d2417;
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(1, 27, 11, 1) 0%,
+            rgba(1, 27, 11, 1) 30%,
+            rgba(1, 27, 11, 0.95) 40%,
+            rgba(1, 27, 11, 0) 60%,
+            rgba(1, 27, 11, 0) 100%
+        );
+        z-index: 1;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+    &__icon {
+        margin-bottom: 20px;
+
+        svg,
+        i {
+            width: 42px;
+            color: $color-blue-500;
+            font-size: 42px;
+        }
+    }
+
+    &__title {
+        font-size: clamp(2rem, 2.3vw, 2.3rem);
+        font-weight: 30px;
+        margin: 0 0 20px;
+        color: $white;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 1.52;
+        color: $white;
+        margin: 0;
+    }
+
+    &__action {
+        margin-top: 8px;
+
+        .xclear-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 45px;
+            padding: 12px 20px;
+            background-color: $color-blue-500;
+            color: $white;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .xclear-feature-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .xclear-feature-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .xclear-feature-card {
+        min-height: 500px;
+        padding: 28px 22px 24px;
+        background-position: center;
+
+        &__content {
+            gap: 12px;
+        }
+
+        &__icon {
+            margin-bottom: 16px;
+        }
+
+        &__title {
+            font-size: 2rem;
+        }
+
+        &__description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        &__action {
+            .xclear-btn {
+                min-height: 46px;
+                padding-inline: 20px;
+                font-size: 0.95rem;
+            }
+        }
+    }
+}

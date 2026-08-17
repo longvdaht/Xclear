@@ -1,0 +1,151 @@
+.xclear-language-switcher {
+    display: flex;
+    align-items: center;
+
+    // ── Pill with flags (default) ──────────────────────────────────────
+    &--pill {
+        position: relative;
+        display: inline-block;
+    }
+
+    &__trigger {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 999px;
+        cursor: pointer;
+        font-family: inherit;
+        line-height: 1;
+        transition: border-color 0.2s ease;
+
+        &:hover {
+            border-color: #1c4a4b;
+        }
+    }
+
+    &__flag {
+        width: 22px;
+        height: 22px;
+        object-fit: cover;
+        border-radius: 50% !important;
+        flex-shrink: 0;
+    }
+
+    &__code {
+        font-size: 16px;
+        font-weight: 500;
+        color: #263238;
+    }
+
+    &__caret {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+        transform: rotate(90deg);
+        transition: transform 0.2s ease;
+    }
+
+    &--pill.is-open &__caret {
+        transform: rotate(-90deg);
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        z-index: 100;
+        min-width: 100%;
+        margin: 0;
+        padding: 6px;
+        list-style: none;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4px);
+        transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    }
+
+    &--pill.is-open &__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    &__option {
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            color: #263238;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: background-color 0.15s ease;
+
+            &:hover {
+                background-color: rgba(28, 74, 75, 0.06);
+            }
+        }
+
+        &.is-current a {
+            color: #1c4a4b;
+            background-color: rgba(28, 74, 75, 0.08);
+        }
+    }
+
+    // ── Horizontal list ─────────────────────────────────────────────────
+    &--list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        display: flex;
+
+        &.is-current .xclear-language-switcher__link {
+            font-weight: 600;
+            color: #1c4a4b;
+            pointer-events: none;
+        }
+    }
+
+    &__link {
+        font-size: 14px;
+        font-weight: 500;
+        color: #263238;
+        text-decoration: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: color 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            color: #1c4a4b;
+            background-color: rgba(28, 74, 75, 0.06);
+        }
+    }
+
+    // ── Native dropdown (select) ────────────────────────────────────────
+    &--dropdown {
+        .xclear-language-switcher__select {
+            font-size: 14px;
+            font-weight: 500;
+            color: #263238;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 6px 10px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,181 @@
+@use "../variables" as *;
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.xclear-lamp-replacement {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 40px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.xclear-lamp-replacement__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.xclear-lamp-replacement__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-blue-700;
+    background: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.xclear-lamp-replacement__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-blue-700;
+    flex-shrink: 0;
+}
+
+.xclear-lamp-replacement__heading {
+    font-size: 38px;
+    line-height: 1.2;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-lamp-replacement__heading .xclear-hl {
+    background: none;
+    color: $color-blue-600;
+}
+
+.xclear-lamp-replacement__desc {
+    color: $color-neutral-2;
+
+    p {
+        margin-top: 12px;
+        margin-bottom: 0;
+
+        & + p {
+            margin-top: 12px;
+        }
+    }
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────────
+.xclear-lamp-replacement__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+.xclear-lamp-replacement__card {
+    background-color: $white;
+    max-height: 484px;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px 15px #00000008;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+a.xclear-lamp-replacement__card {
+    box-shadow: 0px 8px 20px 15px #00000008;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+// ── Card image ────────────────────────────────────────────────────────────────
+.xclear-lamp-replacement__card-image {
+    padding: 12px;
+    aspect-ratio: 4 / 3;
+    max-height: 384px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        background-color: #F5F5F5;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+    }
+}
+
+.xclear-lamp-replacement__card-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+    border-radius: 12px;
+}
+
+// ── Card body ─────────────────────────────────────────────────────────────────
+.xclear-lamp-replacement__card-body {
+    padding: 4px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.xclear-lamp-replacement__card-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-lamp-replacement__card-desc {
+    font-size: 14px;
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (min-width: $media-md) {
+    .xclear-lamp-replacement {
+        padding: 64px 0;
+    }
+
+    .xclear-lamp-replacement__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .xclear-lamp-replacement__desc p {
+        margin-top: 0;
+    }
+
+    .xclear-lamp-replacement__card-title {
+        font-size: 24px;
+    }
+
+    .xclear-lamp-replacement__card-desc {
+        font-size: 16px
+    }
+}
+
+@media (min-width: $media-lg) {
+    .xclear-lamp-replacement__header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 64px;
+    }
+
+    .xclear-lamp-replacement__heading {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .xclear-lamp-replacement__desc {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}

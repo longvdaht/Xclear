@@ -1,0 +1,123 @@
+@use "../variables" as *;
+
+// ── Document Download Widget ──────────────────────────────────────────────────
+
+.elementor {
+    .xclear-doc-download {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        // ── Item card ────────────────────────────────────────────────────────
+        &__item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px;
+            width: 560px;
+            max-width: 100%;
+            background: $white;
+            border-radius: 16px;
+            box-shadow: 0px 8px 20px 15px #00000008;
+        }
+
+        // ── Left: icon + meta ────────────────────────────────────────────────
+        &__file {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        &__icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: $bg-5;
+            border-radius: 12px;
+            color: $color-blue-800;
+        }
+
+        &__icon-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        &__meta {
+            min-width: 0;
+        }
+
+        &__name {
+            color: var(--color-neutral-1);
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        &__size {
+            color: var(--color-neutral-2);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        // ── Right: download button ───────────────────────────────────────────
+        &__btn {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 15px;
+            min-height: 40px;
+            border-radius: 12px;
+            background: var(--color-blue-50);
+            color: var(--color-blue-700);
+            white-space: nowrap;
+            cursor: pointer;
+            transition: opacity .15s ease;
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+
+        &__btn-icon-img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        &__btn-text {
+            display: none;
+        }
+
+    }
+}
+
+@media (min-width: $media-sm) {
+    .elementor .xclear-doc-download {
+        &__item {
+            gap: 24px;
+            padding: 16px;
+        }
+
+        &__file {
+            gap: 24px;
+        }
+
+        &__btn {
+            padding: 8px 12px;
+        }
+
+        &__btn-text {
+            display: inline;
+        }
+    }
+}

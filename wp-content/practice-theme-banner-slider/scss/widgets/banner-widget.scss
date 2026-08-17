@@ -1,0 +1,118 @@
+.banner-widget.swiper {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+
+    .banner-slide {
+        background-size: cover;
+        background-position: center;
+        background-image: var(--bg-desktop);
+    }
+
+    .banner-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 60px 56px;
+    }
+
+    .left-banner {
+        flex: 1;
+        max-width: 480px;
+    }
+
+    .banner-title {
+        color: var(--color-neutral-white);
+        margin: 0 0 20px;
+    }
+
+    .banner-description {
+        color: var(--color-neutral-white);
+        line-height: 1.6;
+    }
+
+    .banner-buttons {
+        display: flex;
+        gap: 12px;
+        margin-top: 32px;
+    }
+
+    .banner-images {
+        position: relative;
+        flex: 1;
+        height: 380px;
+    }
+
+    .banner-img {
+        position: absolute;
+        border-radius: 16px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        &--back {
+            top: 0;
+            right: 0;
+            width: 65%;
+            height: 67%;
+            z-index: 1;
+        }
+
+        &--front {
+            bottom: 0;
+            left: 0;
+            width: 65%;
+            height: 74%;
+            z-index: 2;
+        }
+    }
+
+    .swiper-pagination {
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: rgb(255 255 255 / 50%);
+        opacity: 1;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+
+        &-active {
+            background: #ffffff;
+            transform: scale(1.3);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .banner-slide {
+            background-image: var(--bg-mobile);
+        }
+
+        .banner-inner {
+            flex-direction: column;
+            padding: 40px 24px 60px;
+            align-items: stretch;
+        }
+
+        .left-banner {
+            max-width: 100%;
+        }
+
+        .banner-images {
+            max-width: 100%;
+            flex: none;
+        }
+    }
+}

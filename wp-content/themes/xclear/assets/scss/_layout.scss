@@ -1,0 +1,34 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family:
+        "Plus Jakarta Sans",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+:is(.elementor-section-wrap, [data-elementor-id]) > .e-con {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.e-con.e-con-boxed > .e-con-inner,
+.e-con.e-con > .e-con-inner > .elementor-widget.container,
+.elementor.elementor .e-con > .elementor-widget.container,
+.container {
+    max-width: var(--container-width);
+    width: 100%;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    margin: 0 auto;
+}

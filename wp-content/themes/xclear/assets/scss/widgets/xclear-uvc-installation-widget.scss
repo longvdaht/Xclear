@@ -1,0 +1,118 @@
+@use "../variables" as *;
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.xclear-uvc-installation {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 40px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.xclear-uvc-installation__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.xclear-uvc-installation__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-blue-700;
+    background: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.xclear-uvc-installation__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-blue-700;
+    flex-shrink: 0;
+}
+
+.xclear-uvc-installation__heading {
+    line-height: 1.2;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-uvc-installation__heading .xclear-hl {
+    background: none;
+    color: $color-blue-600;
+}
+
+// ── Cards Grid ────────────────────────────────────────────────────────────────
+.xclear-uvc-installation__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.xclear-uvc-installation__card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background-color: $bg-5;
+    border-radius: 16px;
+}
+
+.xclear-uvc-installation__card-icon {
+    font-size: 32px;
+    color: $color-blue-600;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        fill: $color-blue-600;
+    }
+}
+
+.xclear-uvc-installation__card-title {
+    font-weight: 500;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-uvc-installation__card-text {
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (min-width: $media-md) {
+    .xclear-uvc-installation {
+        padding: 64px 0 40px;
+        gap: 36px;
+    }
+
+    .xclear-uvc-installation__grid {
+        grid-template-columns: repeat(var(--grid-cols, 3), 1fr);
+    }
+
+    .xclear-uvc-installation__card {
+        padding: 32px;
+    }
+
+    .xclear-uvc-installation__card-icon {
+        font-size: 35px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (min-width: $media-lg) {
+    .xclear-uvc-installation {
+        gap: 40px;
+    }
+}

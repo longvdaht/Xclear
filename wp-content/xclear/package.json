@@ -1,0 +1,11 @@
+{
+  "name": "xclear",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.86.0"
+  },
+  "scripts": {
+    "build:css": "node_modules/.bin/sass --style=compressed assets/scss/main.scss assets/css/main.min.css",
+    "watch:css": "node_modules/.bin/sass --watch assets/scss/main.scss:assets/css/main.min.css --style=compressed"
+  }
+}

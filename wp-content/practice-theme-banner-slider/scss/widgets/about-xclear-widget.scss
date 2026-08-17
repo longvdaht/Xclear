@@ -1,0 +1,104 @@
+.split-section-widget {
+    display: grid;
+    grid-template-columns: 47fr 53fr;
+    gap: 16px;
+
+
+    .split-section-left {
+        border-radius: 16px;
+        padding: 40px 44px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .split-section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 99px;
+        border: 1px solid hex(255, 255, 255, 0.4);
+        color: #31828E;
+        background: var(--color-blue-100);
+        width: fit-content;
+
+        &-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+        }
+    }
+
+    .split-section-heading {
+        margin: 0;
+    }
+
+    .split-section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+
+    .split-section-right {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .split-section-image {
+        flex-grow: 1;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+
+    .split-section-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 32px;
+        border-radius: 16px;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &-text {
+            font-family: var(--font-primary);
+        }
+
+        &-arrow {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    }
+
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+
+        .split-section-left {
+            padding: 32px 24px;
+        }
+
+        .split-section-image {
+            min-height: 240px;
+        }
+    }
+}

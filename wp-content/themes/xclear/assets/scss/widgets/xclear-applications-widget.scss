@@ -1,0 +1,109 @@
+@use "../variables" as *;
+
+.xclear-applications__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    background-color: #dff8fe;
+    color: #31828e;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 50px;
+    margin-top: 70px;
+
+    .dot {
+        width: 6px;
+        height: 6px;
+        background-color: #31828e;
+        border-radius: 50%;
+        display: block;
+    }
+}
+
+.xclear-applications-wrapper {
+    position: relative;
+    padding: 16px 50px;
+    display: block;
+    width: 100%;
+
+    .xclear-applications__inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        width: 100%;
+        max-width: $container-width;
+        margin: 0 auto 15px;
+        align-items: start;
+    }
+
+    .xclear-applications__left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .xclear-applications__title {
+        font-size: 46px;
+        font-weight: 500;
+        line-height: 1.2;
+        margin: 0;
+        color: #263238;
+        font-family: inherit;
+
+        .highlight {
+            color: #31828e;
+        }
+    }
+
+    .xclear-applications__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .xclear-applications__desc {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #78909c;
+        font-weight: 400;
+
+        p {
+            margin-bottom: 25px;
+            margin-top: -3px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .xclear-applications__badge {
+        display: flex;
+        width: fit-content;
+        margin: 70px auto 0;
+    }
+
+    .xclear-applications-wrapper {
+        padding: 50px 30px;
+
+        .xclear-applications__inner {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .xclear-applications__left {
+            align-items: center;
+            text-align: center;
+        }
+
+        .xclear-applications__desc {
+            text-align: center;
+        }
+    }
+}

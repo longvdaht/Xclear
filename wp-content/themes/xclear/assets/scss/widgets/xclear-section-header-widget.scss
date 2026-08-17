@@ -1,0 +1,87 @@
+@use "../variables" as *;
+
+.xclear-section-header {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.xclear-section-header__badge-wrap {
+    margin: 0 0 16px;
+}
+
+.xclear-section-header__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-body;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    color: $color-blue-700;
+    background: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.xclear-section-header__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-blue-700;
+    flex-shrink: 0;
+}
+
+.xclear-section-header__title {
+    font-family: $font-title;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -.01em;
+    color: $color-neutral-1;
+    font-weight: 500;
+    margin: 0;
+}
+
+.xclear-hl {
+    background: none;
+    color: var(--color-blue-600);
+}
+
+.xclear-section-header__desc {
+    font-family: $font-body;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -.01em;
+    color: $color-neutral-2;
+    max-width: 641px;
+    width: 100%;
+    margin: 28px auto 0;
+    
+    p {
+        margin: 0 0 16px;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+@media (min-width: $media-lg) {
+    .xclear-section-header__title {
+        font-size: 38px;
+        line-height: 46px;
+    }
+}
+
+@media (min-width: $media-md) {
+    .xclear-section-header {
+        padding: 64px 0;
+    }
+
+    .xclear-section-header__desc {
+        margin: 40px auto 0;
+    }
+}

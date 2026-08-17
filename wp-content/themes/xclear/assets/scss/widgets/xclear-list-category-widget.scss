@@ -1,0 +1,291 @@
+@use "../variables" as *;
+
+.xclear-list-category {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 64px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────
+.xclear-list-category__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.xclear-list-category__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    border-radius: 99px;
+    padding: 4px 12px;
+    background-color: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #3B8F9A;
+    width: fit-content;
+}
+
+.xclear-list-category__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #3B8F9A;
+    flex-shrink: 0;
+}
+
+.xclear-list-category__header-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.xclear-list-category__heading {
+    width: 1023px;
+    flex: 1;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 46px;
+    letter-spacing: -0.02em;
+    color: $color-neutral-1;
+    margin: 0;
+
+    .xclear-hl {
+        background: none;
+        color: $color-blue-600;
+    }
+}
+
+a.xclear-list-category__btn,
+.xclear-list-category__btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 45px;
+    border-radius: 99px;
+    padding: 12px 16px;
+    background-color: #336C39;
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.85;
+        color: #ffffff !important;
+    }
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────
+.xclear-list-category__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────
+.xclear-list-category__card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 12px;
+    background-color: #ffffff;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 8px 20px 15px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        text-decoration: none;
+    }
+}
+
+.xclear-list-category__card-image {
+    width: 100%;
+    height: 360px;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.xclear-list-category__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+    background-color: #ffffff;
+}
+
+.xclear-list-category__card-name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-list-category__card-desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+// ── Header description (right side text variant) ──────────────────────────
+.xclear-list-category__header-desc,
+.xclear-list-category__header-desc p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+.xclear-list-category__header-desc p + p {
+    margin-top: 16px;
+}
+
+// ── 2-column variant ──────────────────────────────────────────────────────
+.xclear-list-category__grid--cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    .xclear-list-category__card {
+        gap: 16px;
+    }
+
+    .xclear-list-category__card-image {
+        height: 300px;
+        border-radius: 12px;
+    }
+
+    .xclear-list-category__card-body {
+        justify-content: space-between;
+    }
+
+    .xclear-list-category__card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .xclear-list-category__card-btn {
+        display: block;
+        width: 100%;
+        margin-top: 0;
+        padding: 12px 19px;
+        border-radius: 99px;
+        background-color: #336C39;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+
+        &:hover {
+            background-color: #254D29;
+        }
+    }
+}
+
+@media (min-width: $media-xl) {
+    .xclear-list-category__grid--cols-2 {
+        .xclear-list-category__card {
+            flex-direction: row;
+        }
+
+        .xclear-list-category__card-image {
+            width: 45%;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .xclear-list-category__card-body {
+            flex: 1;
+        }
+    }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────
+@media (min-width: $media-md) {
+    .xclear-list-category__header-row:has(.xclear-list-category__header-desc) {
+        align-items: flex-start;
+
+        .xclear-list-category__heading {
+            width: calc(50% - 20px);
+            flex: none;
+        }
+
+        .xclear-list-category__header-desc {
+            width: calc(50% - 20px);
+        }
+    }
+}
+
+@media (min-width: $media-md) and (max-width: #{$media-lg - 1px}) {
+    .xclear-list-category__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: #{$media-md - 1px}) {
+    .xclear-list-category {
+        padding: 40px 16px;
+    }
+
+    .xclear-list-category__header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .xclear-list-category__heading {
+        width: 100%;
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .xclear-list-category__grid,
+    .xclear-list-category__grid--cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .xclear-list-category__card-image {
+        height: 240px;
+    }
+
+    .xclear-list-category__grid--cols-2 .xclear-list-category__card {
+        flex-direction: column;
+    }
+
+    .xclear-list-category__grid--cols-2 .xclear-list-category__card-image {
+        width: 100%;
+        height: 240px;
+    }
+}

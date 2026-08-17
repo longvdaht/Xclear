@@ -1,0 +1,361 @@
+// Elementor sets inline width on widget wrappers — !important needed only here
+.elementor-widget-xclear_nav_dropdown_widget {
+    width: fit-content !important;
+    flex-shrink: 0;
+}
+
+// ── Nav wrapper ──────────────────────────────────────────────────────────────
+.xclear-nav-wrapper {
+    display: flex;
+    align-items: center;
+
+    // Nested under .xclear-nav-wrapper (specificity 0-2-0) so mobile can override
+    // without !important — same selector in @media wins by cascade order
+    .xclear-nav-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 28px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: max-content;
+
+        &--vertical {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        // ── Top-level item ────────────────────────────────────────────────
+        &__item {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        &__trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        // ── Label ─────────────────────────────────────────────────────────
+        &__label {
+            display: inline-flex;
+            align-items: center;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #263238;
+            letter-spacing: -0.1px;
+            line-height: 24px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        // NOTE: compound "&__x ... &__y" selectors are written outside
+        // nesting below to avoid SASS generating a double .xclear-nav-wrapper
+
+        // ── Caret ─────────────────────────────────────────────────────────
+        &__caret {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+            transform: rotate(90deg);
+            transition: transform 0.2s ease;
+            pointer-events: none;
+        }
+
+        // ── Submenu — position:fixed to escape parent overflow:hidden ──────
+        &__submenu {
+            position: fixed;
+            z-index: 99999;
+            min-width: 180px;
+            margin: 0;
+            padding: 6px;
+            list-style: none;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                opacity 0.18s ease,
+                visibility 0.18s;
+            pointer-events: none;
+        }
+
+        &__subitem {
+            list-style: none;
+        }
+
+        &__sublink {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #263238;
+            text-decoration: none;
+            white-space: nowrap;
+            transition:
+                background-color 0.15s ease,
+                color 0.15s ease;
+
+            &:hover {
+                color: #1f2124;
+                background-color: rgba(28, 74, 75, 0.06);
+            }
+        }
+    }
+}
+
+// ── Desktop compound state selectors (written flat to avoid SASS double-parent bug) ──
+.xclear-nav-wrapper .xclear-nav-menu__item:hover .xclear-nav-menu__label,
+.xclear-nav-wrapper .xclear-nav-menu__item.is-open .xclear-nav-menu__label {
+    color: #1f2124;
+}
+
+.xclear-nav-wrapper .xclear-nav-menu__item.is-open .xclear-nav-menu__caret {
+    transform: rotate(-90deg);
+}
+
+.xclear-nav-wrapper .xclear-nav-menu__item.is-open .xclear-nav-menu__submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+// ── Mobile compound state selectors ──────────────────────────────────────────
+@media (max-width: 768px) {
+    .xclear-nav-wrapper .xclear-nav-menu__item.is-open .xclear-nav-menu__caret {
+        transform: rotate(90deg);
+    }
+
+    .xclear-nav-wrapper
+        .xclear-nav-menu__item.is-open
+        .xclear-nav-menu__submenu {
+        max-height: 600px;
+    }
+}
+
+// ── Hamburger button ─────────────────────────────────────────────────────────
+.xclear-nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: #263238;
+
+    &__bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: currentColor;
+        border-radius: 2px;
+        transition:
+            transform 0.25s ease,
+            opacity 0.25s ease;
+        transform-origin: center;
+    }
+
+    &.is-active &__bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    &.is-active &__bar:nth-child(2) {
+        opacity: 0;
+    }
+    &.is-active &__bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+// ── Backdrop ─────────────────────────────────────────────────────────────────
+.xclear-nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 99998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+// ── Drawer close button ───────────────────────────────────────────────────────
+.xclear-nav-drawer-close {
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #263238;
+    border-radius: 50%;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.06);
+    }
+}
+
+// ── Mobile — drawer slides in from right ──────────────────────────────────────
+@media (max-width: 768px) {
+    // Must keep !important to override the fit-content !important set above
+    .elementor-widget-xclear_nav_dropdown_widget {
+        width: auto !important;
+    }
+
+    .xclear-nav-hamburger {
+        display: flex;
+    }
+    .xclear-nav-backdrop {
+        display: block;
+    }
+    .xclear-nav-drawer-close {
+        display: flex;
+    }
+
+    // Same specificity (0-2-0) as desktop block above — cascade order wins
+    .xclear-nav-wrapper .xclear-nav-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        left: auto;
+        width: 280px;
+        max-width: 90vw;
+        height: 100vh;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 64px 0 24px;
+        background-color: #ffffff;
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+        z-index: 99999;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        transition: right 0.3s ease;
+
+        &.is-mobile-open {
+            right: 0;
+        }
+
+        &__item {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            flex-shrink: unset;
+        }
+
+        &__trigger {
+            width: 100%;
+            padding: 12px 20px;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        &__label {
+            white-space: normal;
+        }
+
+        // Accordion caret: closed = right (→), open = down (↓)
+        &__caret {
+            transform: rotate(0deg);
+        }
+
+        // Submenu: inline accordion instead of fixed dropdown
+        &__submenu {
+            position: static;
+            width: 100%;
+            min-width: unset;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            box-shadow: none;
+            border-radius: 0;
+            background-color: rgba(0, 0, 0, 0.03);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        &__sublink {
+            padding: 10px 32px;
+            white-space: normal;
+            border-radius: 0;
+        }
+    }
+}
+
+body.xclear-drawer-open {
+    overflow: hidden;
+}
+
+// ── Custom buttons inside mobile drawer ───────────────────────────────────────
+.xclear-nav-drawer-buttons {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px;
+
+        .btn {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+// ── Language switcher inside mobile drawer ────────────────────────────────────
+.xclear-nav-drawer-lang {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: flex-end;
+        padding: 16px 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+        // Specificity 0-3-0 beats language-switcher widget's own 0-2-0
+        .xclear-language-switcher--pill .xclear-language-switcher__dropdown {
+            position: fixed;
+            min-width: 0;
+            z-index: 100000; // above drawer (99999) and backdrop (99998)
+        }
+    }
+
+    & + .xclear-nav-drawer-buttons {
+        padding-top: 0;
+    }
+}

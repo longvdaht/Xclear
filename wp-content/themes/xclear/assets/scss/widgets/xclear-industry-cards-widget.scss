@@ -1,0 +1,232 @@
+@use "../variables" as *;
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.xclear-industry-cards {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 40px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.xclear-industry-cards__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.xclear-industry-cards__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-blue-700;
+    background: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.xclear-industry-cards__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-blue-700;
+    flex-shrink: 0;
+}
+
+.xclear-industry-cards__heading {
+    font-size: 30px;
+    line-height: 1.2;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-industry-cards__heading .xclear-hl {
+    background: none;
+    color: $color-blue-600;
+}
+
+.xclear-industry-cards__desc {
+    color: $color-neutral-2;
+    margin: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────────
+.xclear-industry-cards__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+// ── Card (shared) ─────────────────────────────────────────────────────────────
+.xclear-industry-cards__card {
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    min-height: 80px;
+    display: block;
+}
+
+// ── Image Card ────────────────────────────────────────────────────────────────
+.xclear-industry-cards__card--image {
+    position: relative;
+    background-color: $color-neutral-1;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #062C31 0%, rgba(6, 44, 49, 0) 100%);
+        pointer-events: none;
+    }
+}
+
+.xclear-industry-cards__card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.4s ease;
+}
+
+a.xclear-industry-cards__card--image:hover .xclear-industry-cards__card-bg {
+    transform: scale(1.1);
+}
+
+.xclear-industry-cards__card-content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 24px;
+}
+
+.xclear-industry-cards__card-icon {
+    font-size: 32px;
+    color: $white;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+
+    svg {
+        width: 32px;
+        height: 32px;
+        fill: $white;
+    }
+}
+
+.xclear-industry-cards__card-title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.xclear-industry-cards__card--image .xclear-industry-cards__card-title {
+    color: $white;
+    margin: 0;
+}
+
+// ── CTA Card ──────────────────────────────────────────────────────────────────
+.xclear-industry-cards__card--cta {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 24px;
+    background-color: $color-green-100;
+}
+
+.xclear-industry-cards__card--cta .xclear-industry-cards__card-title {
+    color: $color-green-900;
+}
+
+.xclear-industry-cards__cta-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: $color-green-900;
+    transition: transform 0.2s ease;
+
+    svg {
+        width: 44px;
+        height: 44px;
+        stroke: currentColor;
+    }
+}
+
+a.xclear-industry-cards__card--cta {
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: $color-green-200;
+    }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (min-width: $media-md) {
+    .xclear-industry-cards {
+        padding: 80px 0;
+        gap: 36px;
+    }
+
+    .xclear-industry-cards__heading {
+        font-size: 38px;
+    }
+
+    .xclear-industry-cards__desc {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .xclear-industry-cards__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .xclear-industry-cards__card {
+        min-height: 96px;
+        border-radius: 16px;
+    }
+
+    .xclear-industry-cards__card--cta {
+        min-height: 96px;
+    }
+}
+
+@media (min-width: $media-lg) {
+    .xclear-industry-cards {
+        gap: 64px;
+    }
+
+    .xclear-industry-cards__header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 64px;
+    }
+
+    .xclear-industry-cards__heading {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .xclear-industry-cards__desc {
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+    }
+
+    .xclear-industry-cards__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

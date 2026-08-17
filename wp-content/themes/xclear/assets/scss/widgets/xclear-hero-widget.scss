@@ -1,0 +1,317 @@
+@use "../variables" as *;
+
+.xclear-hero-slider {
+    .swiper-pagination {
+        text-align: left;
+        padding-left: 50px;
+        bottom: 24px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.45);
+        opacity: 1;
+        transition: background 0.25s ease, transform 0.25s ease;
+
+        &-active {
+            background: #fff;
+            transform: scale(1.25);
+        }
+    }
+}
+
+.xclear-hero-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: var(--bg-desktop);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 50px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(88.68deg, rgba(0, 53, 85, 0.5) 12.04%, rgba(0, 53, 85, 0) 58.65%);
+        z-index: 1;
+    }
+
+    .xclear-hero__inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .xclear-hero__content {
+        color: $white;
+        max-width: 540px;
+        min-width: 0;
+    }
+
+    .xclear-hero__title {
+        font-size: 3.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 25px;
+        color: $white;
+        font-family: inherit;
+        word-break: break-word;
+    }
+
+    .xclear-hero__desc {
+        font-size: 1.15rem;
+        line-height: 1.6;
+        color: $white;
+        font-weight: 300;
+        margin-bottom: 40px;
+    }
+
+    .xclear-hero__actions {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: $color-green-900;
+            color: $white;
+            border: 2px solid $color-green-900;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: $white;
+            border: 1px solid #fff;
+        }
+    }
+
+    .xclear-hero__visuals {
+        position: relative;
+        height: 100%;
+        min-height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 629px;
+        min-width: 0;
+        margin-left: auto;
+    }
+
+    .xclear-hero__img {
+        position: absolute;
+        border-radius: 16px;
+        object-fit: cover;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+        &--back {
+            top: 0;
+            right: 0;
+            width: 61%;
+            height: 76%;
+            z-index: 1;
+        }
+
+        &--front {
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 83%;
+            z-index: 2;
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .xclear-hero-wrapper {
+        padding: 64px 40px;
+
+        .xclear-hero__inner {
+            gap: 36px;
+        }
+
+        .xclear-hero__title {
+            font-size: 3rem;
+        }
+
+        .xclear-hero__desc {
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+        }
+
+        .xclear-hero__visuals {
+            min-height: 400px;
+            max-width: 520px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .xclear-hero-wrapper {
+        padding: 48px 28px;
+        min-height: unset;
+
+        .xclear-hero__inner {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .xclear-hero__content {
+            max-width: 100%;
+        }
+
+        .xclear-hero__title {
+            font-size: 2.6rem;
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .xclear-hero__desc {
+            font-size: 1rem;
+            line-height: 1.65;
+            margin-bottom: 28px;
+        }
+
+        .xclear-hero__actions {
+            gap: 14px;
+
+            a {
+                min-height: 48px;
+                padding: 12px 24px;
+            }
+        }
+
+        .xclear-hero__visuals {
+            min-height: 360px;
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+        }
+
+        .xclear-hero__img {
+            &--back {
+                width: 48%;
+                height: 68%;
+            }
+
+            &--front {
+                width: 66%;
+                height: 82%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .xclear-hero-slider {
+        &__dots {
+            left: 20px;
+            bottom: 16px;
+        }
+    }
+
+    .xclear-hero-wrapper {
+        background-image: var(--bg-mobile, var(--bg-desktop));
+        padding: 36px 20px 24px;
+        border-radius: 16px;
+
+        &::before {
+            background: linear-gradient(
+                180deg,
+                rgba(0, 31, 49, 0.78) 0%,
+                rgba(0, 31, 49, 0.58) 42%,
+                rgba(0, 31, 49, 0.34) 100%
+            );
+        }
+
+        .xclear-hero__inner {
+            gap: 24px;
+        }
+
+        .xclear-hero__content {
+            text-align: left;
+        }
+
+        .xclear-hero__title {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .xclear-hero__desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .xclear-hero__actions {
+            flex-direction: column;
+            align-items: stretch;
+
+            a {
+                width: 100%;
+                min-height: 46px;
+                padding: 12px 18px;
+            }
+        }
+
+        .xclear-hero__visuals {
+            min-height: 0;
+            display: grid;
+            grid-template-columns: 1fr 0.72fr;
+            align-items: end;
+            gap: 12px;
+        }
+
+        .xclear-hero__img {
+            position: relative;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            border-radius: 14px;
+
+            &--back,
+            &--front {
+                inset: auto;
+            }
+
+            &--back {
+                width: 100%;
+                height: auto;
+                order: 2;
+                transform: translateY(-18px);
+            }
+
+            &--front {
+                width: 100%;
+                height: auto;
+                order: 1;
+            }
+        }
+    }
+}
+

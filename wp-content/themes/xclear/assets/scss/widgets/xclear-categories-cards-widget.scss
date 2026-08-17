@@ -1,0 +1,218 @@
+@use "../variables" as *;
+
+.elementor-widget-xclear_categories_cards_widget {
+    padding: 0 0 40px;
+}
+
+// ── Header ──────────────────────────────────────────────────────────────────
+.xclear-categories-cards {
+    &__header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    &__header-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        align-items: start;
+        width: 100%;
+    }
+
+
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: $font-title;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: -.01em;
+        text-transform: uppercase;
+        color: var(--color-blue-700);
+        background: var(--color-blue-50);
+        border: 1px solid var(--color-blue-50);
+        border-radius: 99px;
+        padding: 4px 12px;
+        width: fit-content;
+    }
+
+    &__badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #45b5b5;
+        flex-shrink: 0;
+    }
+
+    &__heading {
+        font-family: $font-title;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 38px;
+        letter-spacing: -.02em;
+        color: var(--color-neutral-1);
+        width: 100%;
+        margin: 0;
+    }
+
+    &__header-desc {
+        width: 100%;
+
+        p + p {
+            margin-top: 24px;
+        }
+    }
+
+    &__header-desc,
+    &__header-desc p {
+        font-family: $font-body;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: -.01em;
+        color: var(--color-neutral-2);
+        margin: 0;
+    }
+}
+
+// ── Grid ─────────────────────────────────────────────────────────────────────
+.xclear-categories-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    max-width: $container-width;
+    margin: 0 auto;
+
+    &__item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0px 8px 20px 15px rgba(0, 0, 0, .03);
+        border-radius: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        padding: 12px;
+        width: 100%;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+
+    &__image {
+        width: 100%;
+
+        img {
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F5F5;
+            object-fit: cover;
+        }
+    }
+
+    &__image-placeholder {
+        width: 100%;
+        height: 300px;
+        background-color: #F5F5F5;
+        border-radius: 12px;
+    }
+
+    &__body {
+        position: relative;
+        width: 100%;
+        padding: 16px;
+        margin: auto;
+    }
+
+    &__title {
+        font-family: $font-title;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+        letter-spacing: -.01em;
+        color: var(--color-neutral-1);
+        margin: 0;
+    }
+
+    &__desc {
+        font-family: $font-body;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        letter-spacing: -.01em;
+        color: var(--color-neutral-2);
+        margin: 12px 0 0;
+    }
+
+    &__btn {
+        display: block;
+        width: 100%;
+        margin: 24px 0 0;
+        padding: 12px 19px;
+        border: none;
+    }
+}
+
+.xclear-hl {
+    background: none;
+    color: var(--color-blue-600);
+}
+
+@media (min-width: $media-md) {
+    .elementor-widget-xclear_categories_cards_widget {
+        padding: 0 0 80px;
+    }
+
+    .xclear-categories-cards {
+        &__heading {
+            width: calc(50% - 20px);
+            font-size: 38px;
+            line-height: 46px;
+        }
+
+        &__header-desc {
+            width: calc(50% - 20px);
+        }
+
+        gap: 24px;
+
+        &__item {
+            width: calc((100% - 24px) / 2);
+        }
+
+        &__title {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        &__desc {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    }
+}
+
+@media (min-width: $media-xl) {
+    .xclear-categories-cards {
+        &__image {
+            width: 45.16%;
+        }
+
+        &__body {
+            width: calc(54.84% - 16px);
+        }
+    }
+}
+

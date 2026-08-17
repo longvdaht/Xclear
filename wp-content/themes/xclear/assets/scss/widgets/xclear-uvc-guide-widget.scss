@@ -1,0 +1,185 @@
+@use "../variables" as *;
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.xclear-uvc-guide {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 40px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.xclear-uvc-guide__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 64px;
+    row-gap: 16px;
+    align-items: start;
+}
+
+.xclear-uvc-guide__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: $color-blue-700;
+    background: $color-blue-50;
+    border: 1px solid $color-blue-50;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.xclear-uvc-guide__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-blue-700;
+    flex-shrink: 0;
+}
+
+.xclear-uvc-guide__heading {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 38px;
+    line-height: 46px;
+    letter-spacing: -0.02em;
+    color: $color-neutral-1;
+    margin: 0;
+}
+
+.xclear-uvc-guide__heading .xclear-hl {
+    background: none;
+    color: $color-blue-600;
+}
+
+// ── Header Right ──────────────────────────────────────────────────────────────
+.xclear-uvc-guide__header-right {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.xclear-uvc-guide__desc-intro {
+    color: $color-neutral-2;
+    margin: 0;
+}
+
+.xclear-uvc-guide__desc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.xclear-uvc-guide__desc-item {
+    color: $color-neutral-2;
+}
+
+.xclear-uvc-guide__item-label {
+    font-weight: 700;
+    color: $color-neutral-2;
+    margin-right: 4px;
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────────
+.xclear-uvc-guide__table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.xclear-uvc-guide__table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.xclear-uvc-guide__table-head th {
+    width: calc((100% - 48px) / 3);
+    font-weight: 700;
+    color: $color-neutral-1;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid $color-neutral-5;
+}
+
+.xclear-uvc-guide__table td {
+    color: $color-neutral-2;
+    padding: 12px;
+    border-bottom: 1px solid $color-neutral-5;
+    text-align: left;
+}
+
+.xclear-uvc-guide__table tbody tr {
+    background-color: $white;
+
+    &:nth-child(odd) {
+        background-color: $bg-5;
+    }
+
+    &:last-child td {
+        border-bottom: none;
+    }
+}
+
+// ── Note ──────────────────────────────────────────────────────────────────────
+.xclear-uvc-guide__note {
+    font-style: italic;
+    color: $color-neutral-2;
+    margin: 0;
+    max-width: 732px;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: $media-lg) {
+    .xclear-uvc-guide__header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 16px;
+    }
+
+    .xclear-uvc-guide__heading {
+        grid-column: 1;
+        grid-row: auto;
+        font-size: 34px;
+    }
+
+    .xclear-uvc-guide__header-right {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: $media-md) {
+    .xclear-uvc-guide__heading {
+        font-size: 28px;
+    }
+
+    .xclear-uvc-guide__table-head th,
+    .xclear-uvc-guide__table td {
+        padding: 12px 8px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .xclear-uvc-guide__desc-intro {
+        margin-top: 12px;
+    }
+}
+
+@media (min-width: $media-md) {
+    .xclear-uvc-guide {
+        padding: 64px 0;
+    }
+
+    .xclear-uvc-guide__table-head th {
+        width: calc((100% - 80px) / 3);
+    }
+}

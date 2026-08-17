@@ -1,0 +1,160 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xclear\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_ES\n"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Breadcrumb"
+msgstr "Migas de pan"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Advantages"
+msgstr "Ventajas"
+
+msgid "Manuals"
+msgstr "Manuales"
+
+msgid "Leaflet"
+msgstr "Folleto"
+
+msgid "Request More Information"
+msgstr "Solicitar más información"
+
+msgid "Buy spare parts"
+msgstr "Compre repuestos"
+
+msgid "Become a Dealer"
+msgstr "Conviértase en distribuidor"
+
+msgid "Specs"
+msgstr "Especificaciones"
+
+msgid "Spare parts"
+msgstr "Repuestos"
+
+msgid "Data Table"
+msgstr "Tabla de datos"
+
+msgid "Installation Video"
+msgstr "Vídeo de instalación"
+
+msgid "Play video"
+msgstr "Reproducir vídeo"
+
+msgid "Play video: %s"
+msgstr "Reproducir vídeo: %s"
+
+msgid "All Products"
+msgstr "Todos los productos"
+
+msgid "Filter by category"
+msgstr "Filtrar por categoría"
+
+msgid "Newest"
+msgstr "Más reciente"
+
+msgid "Oldest"
+msgstr "Más antiguo"
+
+msgid "A → Z"
+msgstr "A → Z"
+
+msgid "Z → A"
+msgstr "Z → A"
+
+msgid "Sort by:"
+msgstr "Ordenar por:"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Items per page"
+msgstr "Artículos por página"
+
+msgid "Items %1$d to %2$d of %3$d"
+msgstr "Artículos %1$d a %2$d de %3$d"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s producto"
+msgstr[1] "%s productos"
+
+msgid "More information"
+msgstr "Más información"
+
+msgid "More information "
+msgstr "Más información "
+
+msgid "Load More"
+msgstr "Cargar más"
+
+msgid "No posts found."
+msgstr "No se encontraron artículos."
+
+msgid "Search for articles"
+msgstr "Buscar artículos"
+
+msgid "Search results for"
+msgstr "Resultados de búsqueda para"
+
+msgid "Previous Article"
+msgstr "Artículo anterior"
+
+msgid "Next Article"
+msgstr "Artículo siguiente"
+
+msgid "Previous Project"
+msgstr "Proyecto anterior"
+
+msgid "Next Project"
+msgstr "Proyecto siguiente"
+
+msgid "View Project"
+msgstr "Ver proyecto"
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "&laquo; Prev"
+msgstr "&laquo; Anterior"
+
+msgid "Next &raquo;"
+msgstr "Siguiente &raquo;"
+
+msgid "Year:"
+msgstr "Año:"
+
+msgid "Year: "
+msgstr "Año: "
+
+msgid "Client:"
+msgstr "Cliente:"
+
+msgid "Client: "
+msgstr "Cliente: "
+
+msgid "Application:"
+msgstr "Aplicación:"
+
+msgid "Application: "
+msgstr "Aplicación: "
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "No articles found."
+msgstr "No se encontraron artículos"

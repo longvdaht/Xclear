@@ -1,0 +1,237 @@
+@use "../variables" as *;
+
+/* ─── Grid ───────────────────────────────────────────────────────────────── */
+.xclear-vg {
+    font-family: $font-body;
+    width: 100%;
+}
+
+.xclear-vg__grid {
+    display: grid;
+    gap: 24px;
+}
+
+.xclear-vg--cols-2 .xclear-vg__grid,
+.xclear-vg--cols-3 .xclear-vg__grid,
+.xclear-vg--cols-4 .xclear-vg__grid { grid-template-columns: 1fr; }
+
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+.xclear-vg__card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px 15px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 12px;
+
+    &:hover,
+    &:focus {
+        transform: translateY(-3px);
+
+        .xclear-vg__play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: transparent;
+        }
+
+        .xclear-vg__overlay {
+            opacity: 1;
+        }
+    }
+
+    /* ─── Thumbnail ──────────────────────────────────────────────────────────── */
+    .xclear-vg__thumb-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 346 / 240;
+        overflow: hidden;
+        background: $color-neutral-5;
+        border-radius: 12px;
+    }
+
+    .xclear-vg__thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+
+        .xclear-vg__card:hover & {
+            transform: scale(1.04);
+        }
+
+        &--placeholder {
+            background: $color-neutral-5;
+        }
+    }
+
+    .xclear-vg__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* ─── Play button ────────────────────────────────────────────────────────── */
+    .xclear-vg__play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        width: 58px;
+        height: 58px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.25s ease, background-color 0.25s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    /* ─── Card body ──────────────────────────────────────────────────────────── */
+    .xclear-vg__card-body {
+        padding: 16px;
+    }
+
+    .xclear-vg__card-title {
+        font-family: $font-body;
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 500;
+        letter-spacing: -.01em;
+        color: $color-neutral-1;
+        margin: 0;
+    }
+}
+
+/* ─── Lightbox overlay ───────────────────────────────────────────────────── */
+.xclear-vg-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[hidden] {
+        display: none !important;
+    }
+
+    &.is-visible {
+        animation: vgFadeIn 0.25s ease forwards;
+    }
+
+    &.is-closing {
+        animation: vgFadeOut 0.2s ease forwards;
+    }
+}
+
+.xclear-vg-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+
+.xclear-vg-lightbox__wrap {
+    position: relative;
+    z-index: 1;
+    width: min(90vw, 960px);
+    max-height: 90vh;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    animation: vgSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.xclear-vg-lightbox__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000;
+    transition: background-color 0.2s ease;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+        background: #fff;
+        opacity: .7;
+    }
+
+    svg {
+        width: 20px;
+    }
+}
+
+.xclear-vg-lightbox__player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    iframe,
+    video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes vgFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes vgFadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes vgSlideUp {
+    from { transform: translateY(32px) scale(0.97); opacity: 0; }
+    to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (min-width: $media-sm) {
+    .xclear-vg--cols-3 .xclear-vg__grid,
+    .xclear-vg--cols-4 .xclear-vg__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: $media-md) {
+    .xclear-vg--cols-2 .xclear-vg__grid { grid-template-columns: repeat(2, 1fr); }
+
+    .xclear-vg__card {
+        .xclear-vg__thumb-wrap {
+            aspect-ratio: 392 / 300;
+        }
+    }
+}
+
+@media (min-width: $media-lg) {  
+    .xclear-vg--cols-3 .xclear-vg__grid { grid-template-columns: repeat(3, 1fr); }
+    .xclear-vg--cols-4 .xclear-vg__grid { grid-template-columns: repeat(4, 1fr); }
+    .xclear-vg--cols-4 .xclear-vg__grid { grid-template-columns: repeat(3, 1fr); }
+
+    .xclear-vg__grid {
+        gap: 32px;
+    }
+}
