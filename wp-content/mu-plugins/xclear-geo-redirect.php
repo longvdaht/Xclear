@@ -11,8 +11,10 @@ if (! defined('ABSPATH')) {
 
 class XclearGeoRedirect
 {
-    private const COOKIE_NAME   = 'xclear_geo_redirected';
-    private const COOKIE_TTL    = YEAR_IN_SECONDS;
+    // Stores the language this plugin last auto-assigned (not a plain "already ran" flag),
+    // so a genuine manual language switch is distinguishable from our own redirect and stays sticky.
+    private const COOKIE_NAME   = 'xclear_geo_lang';
+    private const COOKIE_TTL    = DAY_IN_SECONDS;
     private const DB_PATH       = __DIR__ . '/geoip/GeoLite2-Country.mmdb';
 
     /** Country ISO code => Polylang language slug. Anything not listed falls back to $defaultLang. */
@@ -39,22 +41,27 @@ class XclearGeoRedirect
             return;
         }
 
+        $currentLang  = function_exists('pll_current_language') ? pll_current_language() : null;
+        $lastAutoLang = $_COOKIE[self::COOKIE_NAME] ?? null;
+
+        // A cookie was set by us before, but the visitor is no longer on that language:
+        // they switched manually, so stop overriding their choice.
+        if ($lastAutoLang !== null && $lastAutoLang !== $currentLang) {
+            return;
+        }
+
         $country = $this->detectCountry($this->getVisitorIp());
         if ($country === null) {
-            $this->setCookie(); // don't look it up again on every request
             return;
         }
 
         $targetLang = $this->countryToLang[$country] ?? $this->defaultLang;
 
         if (! function_exists('pll_languages_list') || ! in_array($targetLang, pll_languages_list(), true)) {
-            $this->setCookie();
             return;
         }
 
-        $currentLang = function_exists('pll_current_language') ? pll_current_language() : null;
-
-        $this->setCookie();
+        $this->setCookie($targetLang);
 
         if ($targetLang === $currentLang) {
             return;
@@ -83,10 +90,6 @@ class XclearGeoRedirect
             return false;
         }
 
-        if (isset($_COOKIE[self::COOKIE_NAME])) {
-            return false;
-        }
-
         if (! file_exists(self::DB_PATH)) {
             return false;
         }
@@ -111,7 +114,7 @@ class XclearGeoRedirect
             $record = $reader->country($ip);
 
             return $record->country->isoCode ?: null;
-        } catch (\Throwable $e) {
+        } catch (\Throwable) {
             return null;
         }
     }
@@ -123,9 +126,9 @@ class XclearGeoRedirect
         return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : null;
     }
 
-    private function setCookie(): void
+    private function setCookie(string $lang): void
     {
-        setcookie(self::COOKIE_NAME, '1', time() + self::COOKIE_TTL, '/');
+        setcookie(self::COOKIE_NAME, $lang, time() + self::COOKIE_TTL, '/');
     }
 }
 
