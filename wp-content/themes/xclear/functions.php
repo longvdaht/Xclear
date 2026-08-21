@@ -42,6 +42,10 @@ function xclearEnqueueScripts()
         wp_enqueue_style("xclear-archive-project", get_stylesheet_directory_uri() . "/assets/css/widgets/archive-project.css", array(), $version);
     }
 
+    if (is_404()) {
+        wp_enqueue_style("xclear-404", get_stylesheet_directory_uri() . "/assets/css/widgets/404.css", array(), $version);
+    }
+
     wp_enqueue_script("xclear-custom-tabs", get_stylesheet_directory_uri() . "/assets/js/custom-tabs.js", array("jquery"), $version, true);
 
     if (is_singular("product")) {
