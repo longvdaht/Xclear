@@ -41,6 +41,16 @@ trait XclearHeroBannerControlsTrait
             'condition'   => ['heading_source' => 'manual'],
         ]);
 
+        $this->add_control('heading_tag', [
+            'label'   => esc_html__('Heading HTML Tag', 'xclear'),
+            'type'    => \Elementor\Controls_Manager::SELECT,
+            'default' => 'h2',
+            'options' => [
+                'h1' => 'H1',
+                'h2' => 'H2',
+            ],
+        ]);
+
         $this->add_control('description_1_source', [
             'label'     => esc_html__('Description 1 Source', 'xclear'),
             'type'      => \Elementor\Controls_Manager::SELECT,
@@ -766,6 +776,7 @@ trait XclearHeroBannerRenderTrait
         $btn2_text = esc_html($settings['btn2_text'] ?? '');
         $has_two_desc = !empty($description_1) && !empty($description_2);
         $is_split = ($settings['split_layout'] ?? '') === 'yes';
+        $heading_tag = $settings['heading_tag'] ?? 'h2';
     ?>
         <div class="<?php echo esc_attr($content_class); ?><?php echo $is_split ? ' xclear-hero-banner__content--split' : ''; ?>">
 
@@ -780,9 +791,9 @@ trait XclearHeroBannerRenderTrait
 
                 <div class="xclear-hero-banner__heading-desc">
                     <?php if ($heading) : ?>
-                        <h1 class="xclear-hero-banner__heading">
+                        <<?php echo $heading_tag; ?> class="xclear-hero-banner__heading">
                             <?php echo nl2br(self::parseHighlight($heading)); ?>
-                        </h1>
+                        </<?php echo $heading_tag; ?>>
                     <?php endif; ?>
                     <?php if ($description_1 || $description_2) : ?>
                         <div class="xclear-hero-banner__split-right">
@@ -810,9 +821,9 @@ trait XclearHeroBannerRenderTrait
                 <?php endif; ?>
 
                 <?php if ($heading) : ?>
-                    <h1 class="xclear-hero-banner__heading">
+                    <<?php echo $heading_tag; ?> class="xclear-hero-banner__heading">
                         <?php echo nl2br(self::parseHighlight($heading)); ?>
-                    </h1>
+                    </<?php echo $heading_tag; ?>>
                 <?php endif; ?>
 
                 <?php if ($description_1 || $description_2) : ?>
