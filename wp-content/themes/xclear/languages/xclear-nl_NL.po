@@ -158,3 +158,18 @@ msgstr "Categorieën"
 
 msgid "No articles found."
 msgstr "Geen artikelen gevonden"
+
+msgid "ERROR 404"
+msgstr "FOUT 404"
+
+msgid "This page went swimming off"
+msgstr "Deze pagina is gaan zwemmen"
+
+msgid "The page you're looking for doesn't exist or has been moved. Head back to a page that does."
+msgstr "De pagina die u zoekt bestaat niet of is verplaatst. Ga terug naar een pagina die dat wel doet."
+
+msgid "Back to homepage"
+msgstr "Terug naar de homepage"
+
+msgid "Browse products"
+msgstr "Bekijk producten"
