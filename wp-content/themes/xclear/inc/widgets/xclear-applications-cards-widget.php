@@ -473,35 +473,38 @@ class XclearApplicationsCardsWidget extends \Elementor\Widget_Base
         $desc    = esc_html($card['card_desc']     ?? '');
         $btnText = esc_html($card['card_btn_text'] ?? '');
         $btnKey  = "card_btn_{$index}";
+        $urlCard = "#";
 
         if (! empty($card['card_btn_url']['url'])) {
-            $this->add_link_attributes($btnKey, $card['card_btn_url']);
             $this->add_render_attribute($btnKey, 'class', "{$btnClasses} xclear-app-cards__btn");
+            $urlCard = $card['card_btn_url']['url'];
         }
 ?>
         <div class="xclear-app-cards__item" <?php echo $img ? "style=\"background-image:url({$img});\"" : ''; ?>>
-            <div class="xclear-app-cards__body">
-                <?php if ($title) : ?>
-                    <h3 class="xclear-app-cards__title">
-                        <?php if (! empty($card['card_icon']['value'])) : ?>
-                            <span class="xclear-app-cards__icon">
-                                <?php \Elementor\Icons_Manager::render_icon($card['card_icon'], ['aria-hidden' => 'true']); ?>
-                            </span>
-                        <?php endif; ?>
-                        <?php echo self::parseHighlight($title); ?>
-                    </h3>
-                <?php endif; ?>
+            <a class='xclear-app-cards__link' href="<?php echo $urlCard; ?>">
+                <div class="xclear-app-cards__body">
+                    <?php if ($title) : ?>
+                        <h3 class="xclear-app-cards__title">
+                            <?php if (! empty($card['card_icon']['value'])) : ?>
+                                <span class="xclear-app-cards__icon">
+                                    <?php \Elementor\Icons_Manager::render_icon($card['card_icon'], ['aria-hidden' => 'true']); ?>
+                                </span>
+                            <?php endif; ?>
+                            <?php echo self::parseHighlight($title); ?>
+                        </h3>
+                    <?php endif; ?>
 
-                <?php if ($desc) : ?>
-                    <p class="xclear-app-cards__desc"><?php echo $desc; ?></p>
-                <?php endif; ?>
+                    <?php if ($desc) : ?>
+                        <p class="xclear-app-cards__desc"><?php echo $desc; ?></p>
+                    <?php endif; ?>
 
-                <?php if ($btnText && ! empty($card['card_btn_url']['url'])) : ?>
-                    <a <?php echo $this->get_render_attribute_string($btnKey); ?>>
-                        <?php echo $btnText; ?>
-                    </a>
-                <?php endif; ?>
-            </div>
+                    <?php if ($btnText && ! empty($card['card_btn_url']['url'])) : ?>
+                        <span <?php echo $this->get_render_attribute_string($btnKey); ?>>
+                            <?php echo $btnText; ?>
+                        </span>
+                    <?php endif; ?>
+                </div>
+            </a>
         </div>
     <?php
     }
