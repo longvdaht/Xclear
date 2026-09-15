@@ -1,0 +1,1 @@
+<?php return ['license_key' => '893c425b6d3f079947d5a1ff4fe2f9a5'];
